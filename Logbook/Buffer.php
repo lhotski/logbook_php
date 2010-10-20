@@ -9,7 +9,7 @@
  *	 ));
  *
  *   // force send and clean buffer
- *	 $log->commit();
+ *	 $log->flush();
  *
  * TODO: shared buffer needed
  *
