@@ -53,6 +53,7 @@ class Logbook_Buffer extends Logbook {
 	public function flush() {
 		if (!empty($this->entries)) {
 			$this->send_entries($this->entries);
+			$this->entries = array();
 		}
 	}
 
@@ -71,8 +72,7 @@ class Logbook_Buffer extends Logbook {
 		if ($this->length() >= $this->length_limit
 			|| $this->age() >= $this->age_limit)
 		{
-			$this->send_entries($this->entries);
-			$this->entries = array();
+			$this->flush();
 		}
 	}
 
