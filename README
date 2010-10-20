@@ -1,0 +1,25 @@
+
+Logbook.php:
+
+Simple http://logbook.me client implementation
+
+Requirements:
+	cUrl extension
+
+Using:
+	$log = new Logbook('8e020ea0-6706-47bf-84af-35259576120b'); // your API key
+	$log->send(Logbook::SEVERITY_DEBUG, "test", array("message" => "my test message"));
+
+Logbook/Buffer.php:
+
+Buffered send implementation for http://logbook.me client
+
+Using:
+  $log = new Logbook_Buffer('8e020ea0-6706-47bf-84af-35259576120b');
+  $log->add_entry(Logbook::SEVERITY_DEBUG, "test", array(
+    "message" => "my test message"
+  ));
+
+  // force send and clean buffer
+  $log->flush();
+
